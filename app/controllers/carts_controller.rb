@@ -12,6 +12,6 @@ class CartsController < ApplicationController
 
     private
     def cart_params
-        params.permit(:user_id, :history, :method)
+        params.permit(:user_id, :history, :order_method)
     end 
 end

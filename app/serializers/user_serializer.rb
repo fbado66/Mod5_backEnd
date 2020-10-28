@@ -1,3 +1,7 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :email, :address, :password_digest, :phone_number
+  attributes :id, :name, :email, :address, :phone_number
+  has_many :reviews
+  has_many :carts
+  has_many :orders, through: :carts
+
 end

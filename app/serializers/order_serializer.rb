@@ -1,5 +1,3 @@
 class OrderSerializer < ActiveModel::Serializer
-  attributes :id, :quantity
-  has_one :cart
-  has_one :product
+  attributes :id, :quantity, :cart_id, :product_id     
 end
