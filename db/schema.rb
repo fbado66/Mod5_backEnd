@@ -54,8 +54,13 @@ ActiveRecord::Schema.define(version: 2020_10_27_193028) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
-    t.string "location"
     t.string "image_url"
+    t.string "address"
+    t.string "city"
+    t.integer "zipcode"
+    t.integer "code"
+    t.integer "latitude"
+    t.integer "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

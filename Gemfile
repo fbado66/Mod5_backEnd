@@ -20,6 +20,8 @@ gem 'jwt'
 
 gem 'active_model_serializers'
 
+gem 'zomato'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

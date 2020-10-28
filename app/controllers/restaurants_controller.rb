@@ -13,6 +13,6 @@ class RestaurantsController < ApplicationController
     private 
 
     def restaurant_params
-        params.permit(:name, :location, :image_url)
+        params.permit(:name, :image_ulr, :address, :city, :zipcode, :code, :latitude, :longitude)
     end 
 end
