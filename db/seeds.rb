@@ -8,7 +8,6 @@ require 'uri'
 
 User.destroy_all 
 Cart.destroy_all 
-Option.destroy_all 
 Restaurant.destroy_all
 Product.destroy_all
 Order.destroy_all
@@ -87,7 +86,6 @@ cart_1 = Cart.create!(user_id: 1, order_method: 'delivery')
 
 
 
-steak = Option.create!(name: 'steak')
 steak_names = ['Steak & Eggs',
 "Crock-Pot Cube Steak" ,
 "Creamy Steak Fettuccine",
@@ -109,7 +107,8 @@ Product.create!(
     price: Faker::Number.decimal(l_digits: 2),
     image_url: steak_images[0],
     restaurant_id: 1,
-    option_id: steak.id
+    category: 'Steak'
+
 )
 
 Product.create!(
@@ -117,7 +116,7 @@ Product.create!(
     price: Faker::Number.decimal(l_digits: 2),
     image_url: steak_images[1],
     restaurant_id: 1,
-    option_id: steak.id
+    category: 'Steak'
 )
 
 Product.create!(
@@ -125,7 +124,7 @@ Product.create!(
     price: Faker::Number.decimal(l_digits: 2),
     image_url: steak_images[2],
     restaurant_id: 1,
-    option_id: steak.id
+    category: 'Steak'
 )
 
 Product.create!(
@@ -133,5 +132,5 @@ Product.create!(
     price: Faker::Number.decimal(l_digits: 2),
     image_url: steak_images[3],
     restaurant_id: 1,
-    option_id: steak.id
+    category: 'Steak'
 )

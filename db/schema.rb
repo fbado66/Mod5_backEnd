@@ -24,12 +24,6 @@ ActiveRecord::Schema.define(version: 2020_10_27_193028) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
-  create_table "options", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "orders", force: :cascade do |t|
     t.bigint "cart_id", null: false
     t.bigint "product_id", null: false
@@ -46,10 +40,8 @@ ActiveRecord::Schema.define(version: 2020_10_27_193028) do
     t.string "image_url"
     t.string "category"
     t.bigint "restaurant_id", null: false
-    t.bigint "option_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["option_id"], name: "index_products_on_option_id"
     t.index ["restaurant_id"], name: "index_products_on_restaurant_id"
   end
 
@@ -90,7 +82,6 @@ ActiveRecord::Schema.define(version: 2020_10_27_193028) do
   add_foreign_key "carts", "users"
   add_foreign_key "orders", "carts"
   add_foreign_key "orders", "products"
-  add_foreign_key "products", "options"
   add_foreign_key "products", "restaurants"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "reviews", "users"
