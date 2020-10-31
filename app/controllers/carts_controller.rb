@@ -1,17 +1,19 @@
 class CartsController < ApplicationController
 
+    before_action :authorized, only: [:create]
+
     def index 
         @carts = Cart.all 
         render json: @carts
     end 
 
     def create 
-        @cart = Cart.create!(cart_params)
+        @cart = @user.carts.create!(cart_params)
         render json: @cart
     end 
 
     private
     def cart_params
-        params.permit(:user_id, :history, :order_method)
+        params.permit(:history, :order_method)
     end 
 end
