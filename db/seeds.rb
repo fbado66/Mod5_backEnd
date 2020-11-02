@@ -74,8 +74,8 @@ restaurants_array(api_4)
 ##############################################################################################
 
 
-user_1 = User.create!(name: 'Franklin', email:'abc123@gmail.com', address: '123 Main Street', phone_number: 3477812, password: 'abc123')
-cart_1 = Cart.create!(user_id: 1, order_method: 'delivery')
+# user_1 = User.create!(name: 'Franklin', email:'abc123@gmail.com', address: '123 Main Street', phone_number: 3477812, password: 'abc123')
+# cart_1 = Cart.create!(user_id: 1, order_method: 'delivery')
 
 
 
@@ -276,35 +276,85 @@ soup_images = [
     "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-190606-carrot-soup-121-landscape-pf-1560544439.jpg?crop=0.636xw:0.957xh;0.260xw,0.00481xh&resize=980:*"
 ]
 
-Product.create!(
-    name: steak_names[0], 
-    price: Faker::Number.decimal(l_digits: 2),
-    image_url: steak_images[0],
-    restaurant_id: 1,
-    category: 'Steak'
+chicken_names = [
+    "Brick Chicken",
+    "Korean Fried Chicken",
+    "Butter Pecan Chicken Bites",
+    "Chicken Teriyaki Pineapple Bowls",
+    "Crockpot Chiken Fajitas",
+]
 
-)
+chicken_images = [
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/brick-chick-40-1602008992.jpg?crop=0.5625xw:1xh;center,top&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190130-korean-fried-chicken-horizontal-041-1549304734.jpg?crop=0.502xw:1.00xh;0.139xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/butter-pecan-chicken-bites-horizontal-2-jpg-1600902502.jpg?crop=0.670xw:1.00xh;0.183xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-200302-chicken-teriyaki-pineapple-bowls-0231-landscape-pf-1-1590003019.jpg?crop=0.550xw:0.825xh;0.176xw,0.132xh&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/slow-cooker-chicken-fajitas-1532033841.jpg?crop=0.6796xw:1xh;center,top&resize=980:*",
+]
 
-Product.create!(
-    name: steak_names[1], 
-    price: Faker::Number.decimal(l_digits: 2),
-    image_url: steak_images[1],
-    restaurant_id: 1,
-    category: 'Steak'
-)
+Product.create!(name: steak_names[0], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[0], restaurant_id: 1, category: 'Steak')
+Product.create!(name: steak_names[1], price: Faker::Number.decimal(l_digits: 2),image_url: steak_images[1], restaurant_id: 1, category: 'Steak')
+Product.create!( name: steak_names[2], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[2], restaurant_id: 1, category: 'Steak')
+Product.create!(name: steak_names[3], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[3], restaurant_id: 1, category: 'Steak')
 
-Product.create!(
-    name: steak_names[2], 
-    price: Faker::Number.decimal(l_digits: 2),
-    image_url: steak_images[2],
-    restaurant_id: 1,
-    category: 'Steak'
-)
+Product.create!(name: soup_names[0], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[0], restaurant_id: 1, category: 'Soup')
+Product.create!(name: soup_names[1], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[1], restaurant_id: 1, category: 'Soup')
+Product.create!(name: soup_names[2], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[2], restaurant_id: 1, category: 'Soup')
+Product.create!(name: soup_names[3], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[3], restaurant_id: 1, category: 'Soup')
 
-Product.create!(
-    name: steak_names[3], 
-    price: Faker::Number.decimal(l_digits: 2),
-    image_url: steak_images[3],
-    restaurant_id: 1,
-    category: 'Steak'
-)
+Product.create!(name: salad_names[0], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[0], restaurant_id: 1, category: 'Salad')
+Product.create!(name: salad_names[1], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[1], restaurant_id: 1, category: 'Salad')
+Product.create!(name: salad_names[2], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[2], restaurant_id: 1, category: 'Salad')
+Product.create!(name: salad_names[3], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[3], restaurant_id: 1, category: 'Salad')
+
+Product.create!(name: chicken_names[0], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[0], restaurant_id: 1, category: 'Chicken')
+Product.create!(name: chicken_names[1], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[1], restaurant_id: 1, category: 'Chicken')
+Product.create!(name: chicken_names[2], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[2], restaurant_id: 1, category: 'Chicken')
+Product.create!(name: chicken_names[3], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[3], restaurant_id: 1, category: 'Chicken')
+
+
+
+Product.create!(name: steak_names[4], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[4], restaurant_id: 2, category: 'Steak')
+Product.create!(name: steak_names[5], price: Faker::Number.decimal(l_digits: 2),image_url: steak_images[5], restaurant_id: 2, category: 'Steak')
+Product.create!( name: steak_names[6], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[6], restaurant_id: 2, category: 'Steak')
+Product.create!(name: steak_names[7], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[7], restaurant_id: 2, category: 'Steak')
+
+Product.create!(name: soup_names[4], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[4], restaurant_id: 2, category: 'Soup')
+Product.create!(name: soup_names[5], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[5], restaurant_id: 2, category: 'Soup')
+Product.create!(name: soup_names[6], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[6], restaurant_id: 2, category: 'Soup')
+Product.create!(name: soup_names[7], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[7], restaurant_id: 2, category: 'Soup')
+
+Product.create!(name: salad_names[4], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[0], restaurant_id: 2, category: 'Salad')
+Product.create!(name: salad_names[5], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[1], restaurant_id: 2, category: 'Salad')
+Product.create!(name: salad_names[6], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[2], restaurant_id: 2, category: 'Salad')
+Product.create!(name: salad_names[7], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[3], restaurant_id: 2, category: 'Salad')
+
+Product.create!(name: chicken_names[0], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[0], restaurant_id: 2, category: 'Chicken')
+Product.create!(name: chicken_names[1], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[1], restaurant_id: 2, category: 'Chicken')
+Product.create!(name: chicken_names[2], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[2], restaurant_id: 2, category: 'Chicken')
+Product.create!(name: chicken_names[3], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[3], restaurant_id: 2, category: 'Chicken')
+
+
+Product.create!(name: steak_names[8], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[8], restaurant_id: 3, category: 'Steak')
+Product.create!(name: steak_names[9], price: Faker::Number.decimal(l_digits: 2),image_url: steak_images[9], restaurant_id: 3, category: 'Steak')
+Product.create!( name: steak_names[10], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[10], restaurant_id: 3, category: 'Steak')
+Product.create!(name: steak_names[11], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[11], restaurant_id: 3, category: 'Steak')
+
+Product.create!(name: soup_names[8], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[8], restaurant_id: 3, category: 'Soup')
+Product.create!(name: soup_names[9], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[9], restaurant_id: 3, category: 'Soup')
+Product.create!(name: soup_names[10], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[10], restaurant_id: 3, category: 'Soup')
+Product.create!(name: soup_names[11], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[11], restaurant_id: 3, category: 'Soup')
+
+Product.create!(name: salad_names[8], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[8], restaurant_id: 3, category: 'Salad')
+Product.create!(name: salad_names[9], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[9], restaurant_id: 3, category: 'Salad')
+Product.create!(name: salad_names[10], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[10], restaurant_id: 3, category: 'Salad')
+Product.create!(name: salad_names[11], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[11], restaurant_id: 3, category: 'Salad')
+
+Product.create!(name: chicken_names[0], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[0], restaurant_id: 3, category: 'Chicken')
+Product.create!(name: chicken_names[1], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[1], restaurant_id: 3, category: 'Chicken')
+Product.create!(name: chicken_names[2], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[2], restaurant_id: 3, category: 'Chicken')
+Product.create!(name: chicken_names[3], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[3], restaurant_id: 3, category: 'Chicken')
+
+
+
+
