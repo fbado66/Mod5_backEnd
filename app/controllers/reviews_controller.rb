@@ -1,19 +1,21 @@
 class ReviewsController < ApplicationController
 
+    before_action :authorized, only: [:create]
+
     def index 
         @reviews = Review.all 
-        render json: @orders
+        render json: @reviews
     end 
 
     def create 
-        @review = Review.create!(review_params)
+        @review = @user.reviews.create!(review_params)
         render json: @review
     end 
 
     private 
 
     def review_params
-        params.permit(:restaurant_id, :user_id, :content, :rating)
+        params.permit(:restaurant_id, :content, :rating)
     end 
     
 end
