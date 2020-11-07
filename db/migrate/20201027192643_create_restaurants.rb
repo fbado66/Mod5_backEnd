@@ -7,8 +7,8 @@ class CreateRestaurants < ActiveRecord::Migration[6.0]
       t.string :city
       t.integer :zipcode
       t.integer :code
-      t.integer :latitude
-      t.integer :longitude
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end

@@ -63,7 +63,8 @@ def restaurants_array(restaurants)
       zipcode: (restaurant["restaurant"]["location"]["zipcode"]).to_i,
       code: (restaurant["restaurant"]["id"]).to_i,
       latitude: restaurant["restaurant"]["location"]["latitude"],
-      longitude: restaurant["restaurant"]["location"]["longitude"]
+      longitude: restaurant["restaurant"]["location"]["longitude"],
+      cuisines: restaurant["restaurant"]["cuisines"]
     )}
 end
 restaurants_array(api_0)
