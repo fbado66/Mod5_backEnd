@@ -3,17 +3,11 @@ require 'openssl'
 require 'json'
 require 'uri'
 
-
-
-
 User.destroy_all 
 Cart.destroy_all 
 Restaurant.destroy_all
 Product.destroy_all
 Order.destroy_all
-
-
-
 
 ####Get the api Zomato is allow only 20 data seeds at a time, so have to run the function 5 times############################
 url_0 = URI("https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&start=0&count=20")
@@ -29,7 +23,7 @@ def getApi(url)
   request["user-key"] = 'ba53b04d5d2860debca775f54d0d33f6'
   response = http.request(request)
   if response.code == "200"
-      result = JSON.parse(response.body)
+    result = JSON.parse(response.body)
   end
   return restaurants = result["restaurants"]
 end
@@ -47,11 +41,11 @@ def getApi(url)
   return restaurants = result["restaurants"]
 end
 api_0 = getApi(url_0)
-# # pp api_0
 api_1 = getApi(url_1)
 api_2 = getApi(url_2)
 api_3 = getApi(url_3)
 api_4 = getApi(url_4)
+
 ######################### handling the data to each array ################################
 def restaurants_array(restaurants)
   restaurants.map{|restaurant|
@@ -73,11 +67,6 @@ restaurants_array(api_2)
 restaurants_array(api_3)
 restaurants_array(api_4)
 ##############################################################################################
-
-
-# user_1 = User.create!(name: 'Franklin', email:'abc123@gmail.com', address: '123 Main Street', phone_number: 3477812, password: 'abc123')
-# cart_1 = Cart.create!(user_id: 1, order_method: 'delivery')
-
 
 
 steak_names = ['Steak & Eggs',
@@ -283,6 +272,19 @@ chicken_names = [
     "Butter Pecan Chicken Bites",
     "Chicken Teriyaki Pineapple Bowls",
     "Crockpot Chiken Fajitas",
+    "Butter Pecan Chicken Bites",
+    "Instant Pot Chicken & Rice",
+    "Szechuan Chicken",
+    "Cheesy Chicken & Corn Skillet",
+    "Cajun Chicken",
+    "Chicken Fried Rice",
+    "Harvest Chicken Casserole",
+    "Crock-Pot Chicken Drumsticks",
+    "Slow-Cooker Chicken Thighs",
+    "Chicken Stuffing Casserole",
+    "Spicy Chicken Taquitos",
+    "Chicken Curry",
+    "Blackened Chicken",
 ]
 
 chicken_images = [
@@ -291,6 +293,233 @@ chicken_images = [
     "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/butter-pecan-chicken-bites-horizontal-2-jpg-1600902502.jpg?crop=0.670xw:1.00xh;0.183xw,0&resize=980:*",
     "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-200302-chicken-teriyaki-pineapple-bowls-0231-landscape-pf-1-1590003019.jpg?crop=0.550xw:0.825xh;0.176xw,0.132xh&resize=980:*",
     "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/slow-cooker-chicken-fajitas-1532033841.jpg?crop=0.6796xw:1xh;center,top&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/butter-pecan-chicken-bites-horizontal-2-jpg-1600902502.jpg?crop=0.670xw:1.00xh;0.183xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190508-instant-pot-chicken-and-rice-horizontal-3-1558017055.png?crop=0.668xw:1.00xh;0.196xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/szechuan-chicken-horizontal-1526594491.jpg?crop=0.667xw:1.00xh;0.170xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-cheesy-chicken-and-corn-skillet-still001-1602518882.jpg?crop=0.461xw:0.820xh;0.324xw,0.117xh&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/16/18/1280x1280/square-1462203290-delish-cajun-stuffed-chicken-2.jpg?resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/chicken-fried-rice-horizontal-1545488885.png?crop=0.668xw:1.00xh;0.0994xw,0&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/39/1600x1600/square-1506456246-delish-healthy-chicken-casserole-1.jpg?resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/crock-pot-chicken-drumsticks-horizontal-1537306233.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/34/1600x1600/square-1503418862-chicken-thighs-delish.jpg?resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/chicken-stuffing-casserole-horizontal-1534340465.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-190801-air-fryer-taquitos-0097-landscape-pf-1565972419.jpg?crop=0.535xw:0.803xh;0.231xw,0.0913xh&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/31/1501791674-delish-chicken-curry-horizontal.jpg?crop=0.665xw:0.998xh;0.139xw,0.00240xh&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-blackened-chicken-horizontal-ql-1598921803.jpg?crop=0.670xw:1.00xh;0.261xw,0&resize=980:*",
+]
+
+
+sushi_names = [
+    'Fruity Pebbles Sushi',
+    'California Sushi Bites',
+    "Cauliflower Sushi Stacks",
+    "Picke Sushi",
+    "Burger-Sushi",
+    "BLT Sushi",
+    "Banana Sushi",
+    "Zucchini Sushi",
+    "Sushi Donuts",
+]
+
+sushi_images = [
+    'https://hips.hearstapps.com/del.h-cdn.co/assets/17/28/768x768/square-1500072862-delish-delish-kids-fruity-pebbles-sushi-1.jpg?resize=980:*',
+    "https://hips.hearstapps.com/vidthumb/images/california-sushi-bites-horizontal-1553719564.png?crop=0.559xw:1.00xh;0.221xw,0&resize=980:*",
+    "https://hips.hearstapps.com/vidthumb/images/04-cauliflower-sushi-stacks-final-wide-00-01-24-21-still019-1595603750.jpg?crop=0.5625xw:1xh;center,top&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/17/1024x1024/square-1493303114-delish-pickle-sushi-3.jpg?resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/16/39/1280x1280/square-1475022512-highclass-hillbilly-horizontal.jpg?resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/07/768x768/square-1487260764-delish-blt-sushi-2.jpg?resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/39/980x980/square-1506717388-delish-kids-banana-sushi-ytpin.jpg?resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/14/1024x1024/square-1491232225-delish-zucchini-sushi-01.jpg?resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/18/1024x1024/square-1493901165-delish-sushi-donuts-1.jpg?resize=980:*"
+]
+
+sides_names = [
+    "Perfect Mashed Cauliflower",
+    "Roasted Carrots",
+    "Asparagus ",
+    "Roasted Red Potatoes",
+    "Arugula Salad",
+    "Baked Zucchini",
+    "Cheesy Mushroom",
+]
+
+sides_images = [
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-190620-mashed-cauliflower-0739-landscape-pf-1564069927.jpg?crop=0.668xw:1.00xh;0.131xw,0&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/18/09/1600x1600/square-1519653814-delish-roasted-carrots-1.jpg?resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/18/09/1600x1600/square-1519653347-delish-roasted-asparagus-1.jpg?resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-191113-roasted-red-potatos-0252-landscape-pf-1574656880.jpg?crop=0.614xw:0.921xh;0.183xw,0.0649xh&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-arugula-salad-jpg-1526060277.jpg?crop=0.668xw:1.00xh;0.0769xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-190514-baked-zucchini-landscape-040-pf-1559077316.jpg?crop=0.657xw:0.986xh;0.133xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-cheesy-mushrrom-skillet-still001-1554732301.jpg?crop=0.447xw:0.795xh;0.261xw,0.0769xh&resize=980:*",
+]
+
+bakery_names = [
+   "Cranbeerry Bites",
+   'Red Velvet Cookies',
+   "Apple Pie Bites",
+   "Chocolate Caramel Pops",
+   'Keto Lemon Bars',
+   "Cookie Dough",
+   "Twix pie"
+]
+
+bakery_images = [
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-cranberry-crumb-bars-still001-1604592427.jpg?crop=0.513xw:0.912xh;0.244xw,0.0598xh&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-200813-red-velvet-cookies-n-cream-bars-2720-landscape-yaedit-1604077224.jpeg?crop=0.668xw:1.00xh;0.167xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/apple-pie-bars-1536693077.png?crop=0.668xw:1.00xh;0.234xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-dixie-cup-chocolate-dipped-ice-cream-bars-still002-1597162098.jpg?crop=0.425xw:0.755xh;0.308xw,0.114xh&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-keto-lemon-bars-still002-copy-1558918123.png?crop=0.479xw:0.852xh;0.311xw,0.0570xh&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-200310-keto-cookie-dough-bars-horizontal-13244-eb-1584471945.jpg?crop=0.668xw:1.00xh;0.0353xw,0&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/49/1024x1024/square-1512665843-delish-twix-pie-still003.jpg?resize=980:*"
+]
+
+bar_names = [
+    "Classic Buffalo Wings"
+    'Lover Meat Burger',
+    "Frech Fries",
+    "Chicken Tenders",
+    "Asparagus and Pancetta",
+    "Tacos",
+    "Pulled Pork Chili"
+]
+
+bar_images = [
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/classic-buffalo-wings-horizontal-279-1547506155.jpg?crop=0.6666666666666666xw:1xh;center,top&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/screen-shot-2020-07-23-at-10-21-20-am-1595517942.png?crop=0.736xw:1.00xh;0.184xw,0&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/16/28/1024x1024/square-1468426685-fries.jpg?resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/15/19/1431036057-chicken-tenders-honey-mustard.jpg?crop=0.7975xw:1xh;center,top&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/cm/15/10/54f8b9b8a3a40_-_gemelli-pasta-large-new.jpg?crop=1xw:0.75xh;center,top&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/cm/15/10/480x480/54f9525fa4c55_-_tacos-del0714-def.jpg?resize=980:*",
+    "https://hips.hearstapps.com/vidthumb/images/screen-shot-2019-09-13-at-4-42-55-pm-1568407401.png?crop=0.5581395348837209xw:1xh;center,top&resize=980:*"
+]
+
+seafood_names = [
+    "Seafood Spagethetti",
+    "Shrimp & Sausage Gumbo",
+    "Seafood Lasagna",
+    "Seafood Mixer",
+    "Grill Fish",
+    "Gefilte Fish"
+    "Mussels Tomato Soup",
+    "Fried Calamari "
+    "Pineapple Salmon Skewers"
+]
+
+seafood_images = [
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-seafood-spaghetti-3new-1534500370.jpg?crop=0.5621890547263682xw:1xh;center,top&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/31/1600x1600/square-1501791933-delish-gumbo-horizontal.jpg?resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-seafood-lasagna-still010-1537393431.jpg?crop=0.5625xw:1xh;center,top&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/15/53/980x980/square-1451411348-octopus-salad.jpg?resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/16/17/3200x3200/square-1461781777-gettyimages-502603422.jpg?resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gifilte-fish-horizontal-jpg-1521486750.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/28/640x640/square-1499895381-mussels-tomato-garlic-delish.jpg?resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/squid-andalusian-royalty-free-image-184117668-1554317792.jpg?crop=0.969xw:1.00xh;0.0163xw,0&resize=980:*",
+    'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190523-pineapple-salmon-skewers-338-1559938752.png?crop=0.606xw:0.909xh;0.141xw,0.0913xh&resize=980:*'
+]
+
+bbq_names = [
+    "BBQ Oven-Baked Ribs",
+    "Cheft Special Steak Bites",
+    "Chicken Cauliflower",
+    "BBQ Lime Brussels Sprouts",
+    "Baked BBQ Chicken",
+    "Grilled Chicken + Yellow Corn",
+    "Shortcute BBQ Ribs",
+    "Asian BBQ Grilled Salmon",
+    "Grilled Potatoes"
+]
+
+bbq_images = [
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-200302-over-baked-ribs-0185-landscape-pf-1590087100.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/netflix-chefs-table-bbq-1597769683.jpg?crop=0.503xw:1.00xh;0,0&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/16/18/1024x1024/square-1462465984-crack-cauliflower-003.jpg?resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/46/1024x1024/square-1510957760-delish-crack-brussels-sprouts-1.jpg?resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190410-oven-barbecue-chicken-369-1555947776.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/16/21/1280x1280/square-1464125618-delish-bbq-grilled-chicken.jpg?resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-200302-over-baked-ribs-0192-landscape-pf-1590087101.jpg?crop=0.6668421052631579xw:1xh;center,top&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190510-barbecue-salmon-horizontal-1-1558117451.png?crop=0.668xw:1.00xh;0.167xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-grilled-potatoes-jpg-1526061594.jpg?crop=0.6666666666666666xw:1xh;center,top&resize=980:*"
+]
+
+bagels_names = [
+    "Keto Bagels",
+    "Pizza Waffles",
+    "Bagel Mixer",
+    "Toasted Egg Bagels",
+    "Bagel Kreme Challenge",
+    "Bagel Dogs",
+    "Bagel Bites",
+    "Bagel Cream Ring",
+    "Espresso Buzz Bagel"
+]
+
+bagels_images = [
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-keto-bagels-horizontal-2-1543886532.jpg?crop=0.668xw:1.00xh;0.333xw,0&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/45/1280x1280/square-1510169092-pizza-waffles-delish-1.jpg?resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/20191219-seo-bagel-recipe-delish-ehg-8856-1578412004.jpg?crop=0.668xw:1.00xh;0.260xw,0.00240xh&resize=980:*",
+    "https://hips.hearstapps.com/vidthumb/images/delish-everything-toast-egg-cups-still002-1551379468.jpg?crop=0.5625xw:1xh;center,top&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/29/1024x1024/square-1500413710-delish-krispy-kreme-bagel-still1.jpg?resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/16/29/640x640/square-1469116020-delish-everything-bagel-dogs-grab.jpg?resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/11/1024x1024/square-1489780164-bfast-bagel-bites-01.jpg?resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-bacon-scallion-cream-cheese-with-everything-bagel-ring-1-1534196375.jpg?crop=0.564xw:1.00xh;0.196xw,0&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/18/1280x1280/square-1494006508-espresso-buzz-bagel.jpg?resize=980:*",
+]
+
+tea_names = [
+    "Thai Iced Tea",
+    "Long Island Iced Tea",
+    "Apple Cider Tea"
+    "Peach Tea"
+]
+
+tea_images = [
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/200824-delish-thai-iced-tea-horizontalpour1-15407-eb-1598987409.jpg?crop=0.670xw:1.00xh;0.138xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/long-island-applebees-1571433826.jpg?crop=0.5258333333333334xw:1xh;center,top&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/apple-cider-long-island-iced-tea-03-1567182533.jpg?crop=0.564xw:1.00xh;0.220xw,0&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/16/19/1280x1280/square-1463088129-sweet-tea-sangria.jpg?resize=980:*"
+]
+
+cocktail_names = [
+    "Memorial Day",
+    "Mayo Tequila",
+    "Tiramisu Martini",
+    "Painkiller Drink",
+    "Fourth Of July",
+    "Strawberry Mixer",
+]
+
+cocktail_images = [
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/15/32/3200x3200/square-1438819263-delish-layered-vodka-lemonade.jpg?resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/21/1024x1024/square-1495747562-delish-pink-senoritas-3-lf.jpg?resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/21/1024x1024/square-1495747562-delish-pink-senoritas-3-lf.jpg?resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-painkiller-cocktail-still001-1600709160.jpg?crop=0.564xw:1.00xh;0.220xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-blueberry-lemonade-margs-still001-1528494858.jpg?crop=0.564xw:1.00xh;0.228xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-191017-brunch-punch-0211-landscape-pf-1583527183.jpg?crop=0.544xw:0.817xh;0.448xw,0.0685xh&resize=980:*",
+]
+
+beer_names = [
+    "Sour Me Beer",
+    "Coffe Stout Beer",
+    "French Toast Stout Beer",
+    "Bush Light Beer",
+    "Flight Beer",
+    "PumpKin Beer",
+    "Blue Moon Coffee",
+    "Patagonia",
+    "Ultra Infusions"
+]
+
+beer_images = [
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/uf-poured-1552403183.jpg?crop=0.521xw:0.925xh;0.239xw,0.0751xh&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/wawa-1575311646.png?crop=0.623xw:1.00xh;0.0369xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-toast-beer1-1545410051.jpg?crop=0.501xw:1.00xh;0.0397xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/screen-shot-2020-02-11-at-11-55-01-am-1581440111.png?crop=0.413xw:1.00xh;0.295xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/flight-by-yuengling-beer-social-1582643096.jpg?crop=0.500xw:1.00xh;0.500xw,0&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pumpkin-1599764468.jpg?crop=0.498xw:0.886xh;0,0.0484xh&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/blue-moon-iced-coffee-blonde-1568658724.jpg?crop=0.5xw:1xh;center,top&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/patagonia-anheuser-busch-inbev-beer-lawsuit-1555005457.jpg?crop=0.438xw:0.876xh;0.562xw,0.0293xh&resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/michelob-ultra-infusions-hero-image-1553099082.jpg?crop=0.825xw:1.00xh;0.0881xw,0&resize=980:*"
+
 ]
 
 Product.create!(name: steak_names[0], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[0], restaurant_id: 1, category: 'Steak')
