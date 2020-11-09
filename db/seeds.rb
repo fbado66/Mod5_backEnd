@@ -374,7 +374,7 @@ bakery_images = [
 ]
 
 bar_names = [
-    "Classic Buffalo Wings"
+    "Classic Buffalo Wings",
     'Lover Meat Burger',
     "Frech Fries",
     "Chicken Tenders",
@@ -399,9 +399,9 @@ seafood_names = [
     "Seafood Lasagna",
     "Seafood Mixer",
     "Grill Fish",
-    "Gefilte Fish"
+    "Gefilte Fish",
     "Mussels Tomato Soup",
-    "Fried Calamari "
+    "Fried Calamari ",
     "Pineapple Salmon Skewers"
 ]
 
@@ -468,15 +468,19 @@ bagels_images = [
 tea_names = [
     "Thai Iced Tea",
     "Long Island Iced Tea",
-    "Apple Cider Tea"
-    "Peach Tea"
+    "Apple Cider Tea",
+    "Peach Tea",
+    "Thai Iced Tea",
+
 ]
 
 tea_images = [
     "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/200824-delish-thai-iced-tea-horizontalpour1-15407-eb-1598987409.jpg?crop=0.670xw:1.00xh;0.138xw,0&resize=980:*",
     "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/long-island-applebees-1571433826.jpg?crop=0.5258333333333334xw:1xh;center,top&resize=980:*",
     "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/apple-cider-long-island-iced-tea-03-1567182533.jpg?crop=0.564xw:1.00xh;0.220xw,0&resize=980:*",
-    "https://hips.hearstapps.com/del.h-cdn.co/assets/16/19/1280x1280/square-1463088129-sweet-tea-sangria.jpg?resize=980:*"
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/16/19/1280x1280/square-1463088129-sweet-tea-sangria.jpg?resize=980:*",
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/200824-delish-thai-iced-tea-horizontalpour1-15407-eb-1598987409.jpg?crop=0.670xw:1.00xh;0.138xw,0&resize=980:*",
+
 ]
 
 cocktail_names = [
@@ -486,15 +490,19 @@ cocktail_names = [
     "Painkiller Drink",
     "Fourth Of July",
     "Strawberry Mixer",
+    "Memorial Day",
+
 ]
 
 cocktail_images = [
     "https://hips.hearstapps.com/del.h-cdn.co/assets/15/32/3200x3200/square-1438819263-delish-layered-vodka-lemonade.jpg?resize=980:*",
     "https://hips.hearstapps.com/del.h-cdn.co/assets/17/21/1024x1024/square-1495747562-delish-pink-senoritas-3-lf.jpg?resize=980:*",
-    "https://hips.hearstapps.com/del.h-cdn.co/assets/17/21/1024x1024/square-1495747562-delish-pink-senoritas-3-lf.jpg?resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/15/50/1280x1280/square-1449780642-gingerbread-header-1.jpg?resize=980:*",
     "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-painkiller-cocktail-still001-1600709160.jpg?crop=0.564xw:1.00xh;0.220xw,0&resize=980:*",
     "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-blueberry-lemonade-margs-still001-1528494858.jpg?crop=0.564xw:1.00xh;0.228xw,0&resize=980:*",
     "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-191017-brunch-punch-0211-landscape-pf-1583527183.jpg?crop=0.544xw:0.817xh;0.448xw,0.0685xh&resize=980:*",
+    "https://hips.hearstapps.com/del.h-cdn.co/assets/15/32/3200x3200/square-1438819263-delish-layered-vodka-lemonade.jpg?resize=980:*",
+
 ]
 
 beer_names = [
@@ -522,68 +530,159 @@ beer_images = [
 
 ]
 
-Product.create!(name: steak_names[0], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[0], restaurant_id: 1, category: 'Steak')
-Product.create!(name: steak_names[1], price: Faker::Number.decimal(l_digits: 2),image_url: steak_images[1], restaurant_id: 1, category: 'Steak')
-Product.create!( name: steak_names[2], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[2], restaurant_id: 1, category: 'Steak')
-Product.create!(name: steak_names[3], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[3], restaurant_id: 1, category: 'Steak')
+    # Restaurant 1
+    8.times do |i| Product.create!(name: steak_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+1], restaurant_id: 1, category: 'Specialties') end 
+    4.times do |i| Product.create!(name: soup_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: soup_images[i+1], restaurant_id: 1, category: 'Popular') end 
+    4.times do |i| Product.create!(name: chicken_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: chicken_images[i+1], restaurant_id: 1, category: 'Popular') end 
+    8.times do |i| Product.create!(name: salad_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: salad_images[i+1], restaurant_id: 1, category: 'Roots') end 
+    2.times do |i| Product.create!(name: chicken_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: chicken_images[i+10], restaurant_id: 1, category: 'Signature') end 
+    2.times do |i| Product.create!(name: steak_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+10], restaurant_id: 1, category: 'Signature') end 
+    8.times do |i| Product.create!(name: beer_names[i+1], price: Faker::Number.between(from: 5, to: 15), image_url: beer_images[i+1], restaurant_id: 1, category: 'Drinks') end 
 
-Product.create!(name: soup_names[0], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[0], restaurant_id: 1, category: 'Soup')
-Product.create!(name: soup_names[1], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[1], restaurant_id: 1, category: 'Soup')
-Product.create!(name: soup_names[2], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[2], restaurant_id: 1, category: 'Soup')
-Product.create!(name: soup_names[3], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[3], restaurant_id: 1, category: 'Soup')
-
-Product.create!(name: salad_names[0], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[0], restaurant_id: 1, category: 'Salad')
-Product.create!(name: salad_names[1], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[1], restaurant_id: 1, category: 'Salad')
-Product.create!(name: salad_names[2], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[2], restaurant_id: 1, category: 'Salad')
-Product.create!(name: salad_names[3], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[3], restaurant_id: 1, category: 'Salad')
-
-Product.create!(name: chicken_names[0], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[0], restaurant_id: 1, category: 'Chicken')
-Product.create!(name: chicken_names[1], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[1], restaurant_id: 1, category: 'Chicken')
-Product.create!(name: chicken_names[2], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[2], restaurant_id: 1, category: 'Chicken')
-Product.create!(name: chicken_names[3], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[3], restaurant_id: 1, category: 'Chicken')
+    # Restaurant 2
+    8.times do |i| Product.create!(name: steak_names[i+9], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+9], restaurant_id: 2, category: 'Popular') end 
+    4.times do |i| Product.create!(name: soup_names[i+5], price: Faker::Number.between(from: 15, to: 35), image_url: soup_images[i+5], restaurant_id: 2, category: 'Specialties') end 
+    4.times do |i| Product.create!(name: chicken_names[i+15], price: Faker::Number.between(from: 15, to: 35), image_url: chicken_images[i+5], restaurant_id: 2, category: 'Specialties') end 
+    8.times do |i| Product.create!(name: salad_names[i+9], price: Faker::Number.between(from: 15, to: 35), image_url: salad_images[i+9], restaurant_id: 2, category: 'Roots') end 
+    4.times do |i| Product.create!(name: seafood_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: seafood_images[i+1], restaurant_id: 2, category: 'Signature') end 
+    8.times do |i| Product.create!(name: beer_names[i+1], price: Faker::Number.between(from: 5, to: 15), image_url: beer_images[i+1], restaurant_id: 2, category: 'Drinks') end 
 
 
+    # Restaurant 3
+    8.times do |i| Product.create!(name: sushi_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: sushi_images[i+1], restaurant_id: 3, category: 'Popular') end 
+    4.times do |i| Product.create!(name: seafood_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: seafood_images[i+1], restaurant_id: 3, category: 'Specialties') end
+    4.times do |i| Product.create!(name: chicken_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: chicken_images[i+1], restaurant_id: 3, category: 'Specialties') end 
+    8.times do |i| Product.create!(name: salad_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: salad_images[i+1], restaurant_id: 3, category: 'Roots') end 
+    4.times do |i| Product.create!(name: steak_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+1], restaurant_id: 3, category: 'Signature') end 
+    4.times do |i| Product.create!(name: tea_names[i+1], price: Faker::Number.between(from: 5, to: 15), image_url: tea_images[i+1], restaurant_id: 3, category: 'Drinks') end 
 
-Product.create!(name: steak_names[4], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[4], restaurant_id: 2, category: 'Steak')
-Product.create!(name: steak_names[5], price: Faker::Number.decimal(l_digits: 2),image_url: steak_images[5], restaurant_id: 2, category: 'Steak')
-Product.create!( name: steak_names[6], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[6], restaurant_id: 2, category: 'Steak')
-Product.create!(name: steak_names[7], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[7], restaurant_id: 2, category: 'Steak')
+    # Restaurant 4
+    6.times do |i| Product.create!(name: bar_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: bar_images[i+1], restaurant_id: 4, category: 'Popular') end 
+    3.times do |i| Product.create!(name: steak_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+1], restaurant_id: 4, category: 'Specialties') end 
+    3.times do |i| Product.create!(name: chicken_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: chicken_images[i+1], restaurant_id: 4, category: 'Specialties') end 
+    4.times do |i| Product.create!(name: salad_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: salad_images[i+10], restaurant_id: 4, category: 'Roots') end 
+    2.times do |i| Product.create!(name: steak_names[i+7], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+7], restaurant_id: 4, category: 'Signature') end 
+    6.times do |i| Product.create!(name: cocktail_names[i+1], price: Faker::Number.between(from: 5, to: 15), image_url: cocktail_images[i+1], restaurant_id: 4, category: 'Drinks') end 
 
-Product.create!(name: soup_names[4], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[4], restaurant_id: 2, category: 'Soup')
-Product.create!(name: soup_names[5], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[5], restaurant_id: 2, category: 'Soup')
-Product.create!(name: soup_names[6], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[6], restaurant_id: 2, category: 'Soup')
-Product.create!(name: soup_names[7], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[7], restaurant_id: 2, category: 'Soup')
+    # Restaurant 5
+    8.times do |i| Product.create!(name: seafood_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: seafood_images[i+1], restaurant_id: 5, category: 'Popular') end 
+    3.times do |i| Product.create!(name: steak_names[i+4], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+4], restaurant_id: 5, category: 'Specialties') end 
+    3.times do |i| Product.create!(name: chicken_names[i+4], price: Faker::Number.between(from: 15, to: 35), image_url: chicken_images[i+4], restaurant_id: 5, category: 'Specialties') end 
+    6.times do |i| Product.create!(name: soup_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: soup_images[i+1], restaurant_id: 5, category: 'Roots') end 
+    2.times do |i| Product.create!(name: steak_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+10], restaurant_id: 5, category: 'Signature') end 
+    6.times do |i| Product.create!(name: cocktail_names[i+1], price: Faker::Number.between(from: 5, to: 15), image_url: cocktail_images[i+1], restaurant_id: 5, category: 'Drinks') end 
+    
 
-Product.create!(name: salad_names[4], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[0], restaurant_id: 2, category: 'Salad')
-Product.create!(name: salad_names[5], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[1], restaurant_id: 2, category: 'Salad')
-Product.create!(name: salad_names[6], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[2], restaurant_id: 2, category: 'Salad')
-Product.create!(name: salad_names[7], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[3], restaurant_id: 2, category: 'Salad')
+    # Restaurant 6
+    8.times do |i| Product.create!(name: steak_names[i+15], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+15], restaurant_id: 6, category: 'Popular') end 
+    3.times do |i| Product.create!(name: soup_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+10], restaurant_id: 6, category: 'Specialties') end 
+    3.times do |i| Product.create!(name: chicken_names[i+4], price: Faker::Number.between(from: 15, to: 35), image_url: chicken_images[i+4], restaurant_id: 6, category: 'Specialties') end 
+    6.times do |i| Product.create!(name: salad_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: salad_images[i+1], restaurant_id: 6, category: 'Roots') end 
+    2.times do |i| Product.create!(name: steak_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+10], restaurant_id: 6, category: 'Signature') end 
+    6.times do |i| Product.create!(name: cocktail_names[i+1], price: Faker::Number.between(from: 5, to: 15), image_url: cocktail_images[i+1], restaurant_id: 6, category: 'Drinks') end 
+        
 
-Product.create!(name: chicken_names[0], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[0], restaurant_id: 2, category: 'Chicken')
-Product.create!(name: chicken_names[1], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[1], restaurant_id: 2, category: 'Chicken')
-Product.create!(name: chicken_names[2], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[2], restaurant_id: 2, category: 'Chicken')
-Product.create!(name: chicken_names[3], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[3], restaurant_id: 2, category: 'Chicken')
+    # Restaurant 7
+    8.times do |i| Product.create!(name: soup_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: soup_images[i+1], restaurant_id: 7, category: 'Popular') end 
+    3.times do |i| Product.create!(name: bbq_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: bbq_images[i+1], restaurant_id: 7, category: 'Specialties') end 
+    3.times do |i| Product.create!(name: chicken_names[i+4], price: Faker::Number.between(from: 15, to: 35), image_url: chicken_images[i+4], restaurant_id: 7, category: 'Specialties') end 
+    6.times do |i| Product.create!(name: soup_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: soup_images[i+1], restaurant_id: 7, category: 'Roots') end 
+    2.times do |i| Product.create!(name: salad_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: salad_images[i+10], restaurant_id: 7, category: 'Signature') end 
+    4.times do |i| Product.create!(name: tea_names[i+1], price: Faker::Number.between(from: 5, to: 15), image_url: tea_images[i+1], restaurant_id: 7, category: 'Drinks') end 
+        
+    # Restaurant 8
+    8.times do |i| Product.create!(name: steak_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+10], restaurant_id: 8, category: 'Popular') end 
+    3.times do |i| Product.create!(name: bbq_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: bbq_images[i+1], restaurant_id: 8, category: 'Specialties') end 
+    3.times do |i| Product.create!(name: chicken_names[i+4], price: Faker::Number.between(from: 15, to: 35), image_url: chicken_images[i+4], restaurant_id: 8, category: 'Specialties') end 
+    6.times do |i| Product.create!(name: soup_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: soup_images[i+1], restaurant_id: 8, category: 'Roots') end 
+    2.times do |i| Product.create!(name: salad_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: salad_images[i+10], restaurant_id: 8, category: 'Signature') end 
+    6.times do |i| Product.create!(name: cocktail_names[i+1], price: Faker::Number.between(from: 5, to: 15), image_url: cocktail_images[i+1], restaurant_id: 8, category: 'Drinks') end 
+     
+
+    # Restaurant 9
+    8.times do |i| Product.create!(name: sushi_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: soup_images[i+1], restaurant_id: 9, category: 'Popular') end 
+    3.times do |i| Product.create!(name: steak_names[i+20], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+20], restaurant_id: 9, category: 'Specialties') end 
+    3.times do |i| Product.create!(name: chicken_names[i+14], price: Faker::Number.between(from: 15, to: 35), image_url: chicken_images[i+14], restaurant_id: 9, category: 'Specialties') end 
+    6.times do |i| Product.create!(name: soup_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: soup_images[i+1], restaurant_id: 9, category: 'Roots') end 
+    2.times do |i| Product.create!(name: salad_names[i+5], price: Faker::Number.between(from: 15, to: 35), image_url: salad_images[i+5], restaurant_id: 9, category: 'Signature') end 
+    4.times do |i| Product.create!(name: tea_names[i+1], price: Faker::Number.between(from: 5, to: 15), image_url: tea_images[i+1], restaurant_id: 9, category: 'Drinks') end 
+    4.times do |i| Product.create!(name: beer_names[i+1], price: Faker::Number.between(from: 5, to: 15), image_url: beer_images[i+1], restaurant_id: 9, category: 'Drinks') end 
+
+    # Restaurant 10
+    8.times do |i| Product.create!(name: steak_names[i+13], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+13], restaurant_id: 10, category: 'Popular') end 
+    3.times do |i| Product.create!(name: bagels_names[i+2], price: Faker::Number.between(from: 15, to: 35), image_url: bagels_images[i+2], restaurant_id: 10, category: 'Specialties') end 
+    3.times do |i| Product.create!(name: chicken_names[i+7], price: Faker::Number.between(from: 15, to: 35), image_url: chicken_images[i+7], restaurant_id: 10, category: 'Specialties') end 
+    6.times do |i| Product.create!(name: soup_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: soup_images[i+10], restaurant_id: 10, category: 'Roots') end 
+    2.times do |i| Product.create!(name: salad_names[i+8], price: Faker::Number.between(from: 15, to: 35), image_url: salad_images[i+8], restaurant_id: 10, category: 'Signature') end 
+    4.times do |i| Product.create!(name: cocktail_names[i+1], price: Faker::Number.between(from: 5, to: 15), image_url: cocktail_images[i+1], restaurant_id: 10, category: 'Drinks') end 
+    4.times do |i| Product.create!(name: beer_names[i+1], price: Faker::Number.between(from: 5, to: 15), image_url: beer_images[i+1], restaurant_id: 10, category: 'Drinks') end 
+    
+    # Restaurant 11
+    8.times do |i| Product.create!(name: chicken_names[i+13], price: Faker::Number.between(from: 15, to: 35), image_url: chicken_images[i+13], restaurant_id: 11, category: 'Popular') end 
+    3.times do |i| Product.create!(name: bbq_names[i+2], price: Faker::Number.between(from: 15, to: 35), image_url: bbq_images[i+2], restaurant_id: 11, category: 'Specialties') end 
+    3.times do |i| Product.create!(name: steak_names[i+7], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+7], restaurant_id: 11, category: 'Specialties') end 
+    6.times do |i| Product.create!(name: soup_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: soup_images[i+10], restaurant_id: 11, category: 'Roots') end 
+    2.times do |i| Product.create!(name: salad_names[i+8], price: Faker::Number.between(from: 15, to: 35), image_url: salad_images[i+8], restaurant_id: 11, category: 'Signature') end 
+    4.times do |i| Product.create!(name: cocktail_names[i+2], price: Faker::Number.between(from: 5, to: 15), image_url: cocktail_images[i+2], restaurant_id: 11, category: 'Drinks') end 
+    2.times do |i| Product.create!(name: beer_names[i+4], price: Faker::Number.between(from: 5, to: 15), image_url: beer_images[i+4], restaurant_id: 11, category: 'Drinks') end 
+    
+    # Restaurant 12
+    6.times do |i| Product.create!(name: bar_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: bar_images[i+1], restaurant_id: 12, category: 'Popular') end 
+    3.times do |i| Product.create!(name: bbq_names[i+2], price: Faker::Number.between(from: 15, to: 35), image_url: bbq_images[i+2], restaurant_id: 12, category: 'Specialties') end 
+    3.times do |i| Product.create!(name: sides_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: sides_images[i+1], restaurant_id: 12, category: 'Specialties') end 
+    6.times do |i| Product.create!(name: soup_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: soup_images[i+10], restaurant_id: 12, category: 'Roots') end 
+    2.times do |i| Product.create!(name: salad_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: salad_images[i+10], restaurant_id: 12, category: 'Signature') end 
+    4.times do |i| Product.create!(name: cocktail_names[i+2], price: Faker::Number.between(from: 5, to: 15), image_url: cocktail_images[i+2], restaurant_id: 12, category: 'Drinks') end 
+    2.times do |i| Product.create!(name: beer_names[i+4], price: Faker::Number.between(from: 5, to: 15), image_url: beer_images[i+4], restaurant_id: 12, category: 'Drinks') end 
+    
+
+    # Restaurant 13
+    6.times do |i| Product.create!(name: bbq_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: bbq_images[i+1], restaurant_id: 13, category: 'Popular') end 
+    3.times do |i| Product.create!(name: steak_names[i+2], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+2], restaurant_id: 13, category: 'Specialties') end 
+    3.times do |i| Product.create!(name: sides_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: sides_images[i+1], restaurant_id: 13, category: 'Specialties') end 
+    6.times do |i| Product.create!(name: soup_names[i+8], price: Faker::Number.between(from: 15, to: 35), image_url: soup_images[i+8], restaurant_id: 13, category: 'Roots') end 
+    2.times do |i| Product.create!(name: salad_names[i+12], price: Faker::Number.between(from: 15, to: 35), image_url: salad_images[i+12], restaurant_id: 13, category: 'Signature') end 
+    4.times do |i| Product.create!(name: cocktail_names[i+2], price: Faker::Number.between(from: 5, to: 15), image_url: cocktail_images[i+2], restaurant_id: 13, category: 'Drinks') end 
+    2.times do |i| Product.create!(name: beer_names[i+4], price: Faker::Number.between(from: 5, to: 15), image_url: beer_images[i+4], restaurant_id: 13, category: 'Drinks') end 
+    
+    # Restaurant 14
+    6.times do |i| Product.create!(name: chicken_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: chicken_images[i+1], restaurant_id: 14, category: 'Popular') end 
+    3.times do |i| Product.create!(name: steak_names[i+2], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+2], restaurant_id: 14, category: 'Specialties') end
+    3.times do |i| Product.create!(name: sides_names[i+3], price: Faker::Number.between(from: 15, to: 35), image_url: sides_images[i+3], restaurant_id: 14, category: 'Specialties') end 
+    6.times do |i| Product.create!(name: soup_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: soup_images[i+10], restaurant_id: 14, category: 'Roots') end 
+    2.times do |i| Product.create!(name: salad_names[i+20], price: Faker::Number.between(from: 15, to: 35), image_url: salad_images[i+20], restaurant_id: 14, category: 'Signature') end 
+    4.times do |i| Product.create!(name: cocktail_names[i+2], price: Faker::Number.between(from: 5, to: 15), image_url: cocktail_images[i+2], restaurant_id: 14, category: 'Drinks') end 
+    2.times do |i| Product.create!(name: beer_names[i+4], price: Faker::Number.between(from: 5, to: 15), image_url: beer_images[i+4], restaurant_id: 14, category: 'Drinks') end 
+    
+    # Restaurant 15
+    6.times do |i| Product.create!(name: seafood_names[i+2], price: Faker::Number.between(from: 15, to: 35), image_url: seafood_images[i+2], restaurant_id: 15, category: 'Popular') end 
+    3.times do |i| Product.create!(name: bbq_names[i+2], price: Faker::Number.between(from: 15, to: 35), image_url: bbq_images[i+2], restaurant_id: 15, category: 'Specialties') end 
+    3.times do |i| Product.create!(name: sides_names[i+3], price: Faker::Number.between(from: 15, to: 35), image_url: sides_images[i+3], restaurant_id: 15, category: 'Specialties') end 
+    6.times do |i| Product.create!(name: soup_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: soup_images[i+10], restaurant_id: 15, category: 'Roots') end 
+    2.times do |i| Product.create!(name: salad_names[i+5], price: Faker::Number.between(from: 15, to: 35), image_url: salad_images[i+5], restaurant_id: 15, category: 'Signature') end 
+    4.times do |i| Product.create!(name: cocktail_names[i+1], price: Faker::Number.between(from: 5, to: 15), image_url: cocktail_images[i+1], restaurant_id: 15, category: 'Drinks') end 
+    2.times do |i| Product.create!(name: beer_names[i+6], price: Faker::Number.between(from: 5, to: 15), image_url: beer_images[i+6], restaurant_id: 15, category: 'Drinks') end 
+    
+    # Restaurant 16
+    6.times do |i| Product.create!(name: sides_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: sides_images[i+1], restaurant_id: 16, category: 'Popular') end 
+    3.times do |i| Product.create!(name: steak_names[i+2], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+2], restaurant_id: 16, category: 'Specialties') end 
+    3.times do |i| Product.create!(name: sides_names[i+3], price: Faker::Number.between(from: 15, to: 35), image_url: sides_images[i+3], restaurant_id: 16, category: 'Specialties') end 
+    6.times do |i| Product.create!(name: soup_names[i+10], price: Faker::Number.between(from: 15, to: 35), image_url: soup_images[i+10], restaurant_id: 16, category: 'Roots') end 
+    2.times do |i| Product.create!(name: seafood_names[i+5], price: Faker::Number.between(from: 15, to: 35), image_url: seafood_images[i+5], restaurant_id: 16, category: 'Signature') end 
+    4.times do |i| Product.create!(name: cocktail_names[i+1], price: Faker::Number.between(from: 5, to: 15), image_url: cocktail_images[i+1], restaurant_id: 16, category: 'Drinks') end 
+    2.times do |i| Product.create!(name: beer_names[i+6], price: Faker::Number.between(from: 5, to: 15), image_url: beer_images[i+6], restaurant_id: 16, category: 'Drinks') end 
+    
 
 
-Product.create!(name: steak_names[8], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[8], restaurant_id: 3, category: 'Steak')
-Product.create!(name: steak_names[9], price: Faker::Number.decimal(l_digits: 2),image_url: steak_images[9], restaurant_id: 3, category: 'Steak')
-Product.create!( name: steak_names[10], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[10], restaurant_id: 3, category: 'Steak')
-Product.create!(name: steak_names[11], price: Faker::Number.decimal(l_digits: 2), image_url: steak_images[11], restaurant_id: 3, category: 'Steak')
 
-Product.create!(name: soup_names[8], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[8], restaurant_id: 3, category: 'Soup')
-Product.create!(name: soup_names[9], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[9], restaurant_id: 3, category: 'Soup')
-Product.create!(name: soup_names[10], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[10], restaurant_id: 3, category: 'Soup')
-Product.create!(name: soup_names[11], price: Faker::Number.decimal(l_digits: 2), image_url: soup_images[11], restaurant_id: 3, category: 'Soup')
 
-Product.create!(name: salad_names[8], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[8], restaurant_id: 3, category: 'Salad')
-Product.create!(name: salad_names[9], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[9], restaurant_id: 3, category: 'Salad')
-Product.create!(name: salad_names[10], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[10], restaurant_id: 3, category: 'Salad')
-Product.create!(name: salad_names[11], price: Faker::Number.decimal(l_digits: 2), image_url: salad_images[11], restaurant_id: 3, category: 'Salad')
 
-Product.create!(name: chicken_names[0], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[0], restaurant_id: 3, category: 'Chicken')
-Product.create!(name: chicken_names[1], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[1], restaurant_id: 3, category: 'Chicken')
-Product.create!(name: chicken_names[2], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[2], restaurant_id: 3, category: 'Chicken')
-Product.create!(name: chicken_names[3], price: Faker::Number.decimal(l_digits: 2), image_url: chicken_images[3], restaurant_id: 3, category: 'Chicken')
+
+
+
+
+
+
 
 
 
