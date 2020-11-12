@@ -12,6 +12,11 @@ class CartsController < ApplicationController
         render json: @cart
     end 
 
+    def show 
+        @cart = Cart.find(params[:id])
+        render json:@cart
+    end 
+
     private
     def cart_params
         params.permit(:history, :order_method)

@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
     
-    # before_action :authorized, only: [:create]
+    before_action :authorized, only: [:create]
 
     def index 
         @orders = Order.all 

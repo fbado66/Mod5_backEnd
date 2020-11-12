@@ -15,18 +15,19 @@ url_1 = URI("https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_
 url_2 = URI("https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&start=40&count=20")
 url_3 = URI("https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&start=60&count=20")
 url_4 = URI("https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&start=80&count=20")
-def getApi(url)
-  http = Net::HTTP.new(url.host, url.port)
-  http.use_ssl = true
-  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-  request = Net::HTTP::Get.new(url)
-  request["user-key"] = 'ba53b04d5d2860debca775f54d0d33f6'
-  response = http.request(request)
-  if response.code == "200"
-    result = JSON.parse(response.body)
-  end
-  return restaurants = result["restaurants"]
-end
+
+# def getApi(https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&start=0&count=20)
+#   http = Net::HTTP.new(url.host, url.port)
+#   http.use_ssl = true
+#   http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+#   request = Net::HTTP::Get.new(url)
+#   request["user-key"] = 'ba53b04d5d2860debca775f54d0d33f6'
+#   response = http.request(request)
+#   if response.code == "200"
+#     result = JSON.parse(response.body)
+#   end
+#   return restaurants = result["restaurants"]
+# end
 
 def getApi(url)
     http = Net::HTTP.new(url.host, url.port)
@@ -51,14 +52,20 @@ def restaurants_array(restaurants)
   restaurants.map{|restaurant|
     Restaurant.create(
       name: restaurant["restaurant"]["name"],
-      image_url: restaurant["restaurant"]["featured_image"],
+      image_url: restaurant["restaurant"]["featured_image"] ? restaurant["restaurant"]["featured_image"] : nil,
+      phone_number: restaurant['restaurant']["phone_numbers"],
+      price: restaurant["restaurant"]["price_range"],
       address: restaurant["restaurant"]["location"]["address"],
       city: restaurant["restaurant"]["location"]["city"],
       zipcode: (restaurant["restaurant"]["location"]["zipcode"]).to_i,
       code: (restaurant["restaurant"]["id"]).to_i,
       latitude: restaurant["restaurant"]["location"]["latitude"],
       longitude: restaurant["restaurant"]["location"]["longitude"],
-      cuisines: restaurant["restaurant"]["cuisines"]
+      cuisines: restaurant["restaurant"]["cuisines"],
+      timings: restaurant["restaurant"]['timings'],
+      user_rating: restaurant['restaurant']["user_rating"]["aggregate_rating"],
+      user_rating_text: restaurant['restaurant']['user_rating']["rating_text"],
+      reviews_count: restaurant["restaurant"]['all_reviews_count']
     )}
 end
 restaurants_array(api_0)

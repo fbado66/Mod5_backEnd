@@ -55,6 +55,12 @@ ActiveRecord::Schema.define(version: 2020_10_27_193028) do
     t.integer "code"
     t.float "latitude"
     t.float "longitude"
+    t.float "user_rating"
+    t.string "user_rating_text"
+    t.string "timings"
+    t.integer "price"
+    t.string "phone_number"
+    t.integer "reviews_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -72,10 +78,11 @@ ActiveRecord::Schema.define(version: 2020_10_27_193028) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "last_name"
     t.string "email"
     t.string "address"
     t.string "password_digest"
-    t.integer "phone_number"
+    t.bigint "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

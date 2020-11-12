@@ -10,6 +10,12 @@ class CreateRestaurants < ActiveRecord::Migration[6.0]
       t.integer :code
       t.float :latitude
       t.float :longitude
+      t.float :user_rating
+      t.string :user_rating_text
+      t.string :timings
+      t.integer :price
+      t.string :phone_number
+      t.integer :reviews_count
 
       t.timestamps
     end
