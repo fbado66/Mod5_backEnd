@@ -1160,7 +1160,7 @@ beer_images = [
     6.times do |i| Product.create!(name: beer_names[i+1], price: Faker::Number.between(from: 5, to: 15), image_url: beer_images[i+1], restaurant_id: 71, category: 'Drinks') end 
      
     # Restaurant 72
-    4.times do |i| Product.create!(name: sides_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: sides_images[i+11], restaurant_id: 72, category: 'Popular') end 
+    4.times do |i| Product.create!(name: sides_names[i+1], price: Faker::Number.between(from: 15, to: 35), image_url: sides_images[i+1], restaurant_id: 72, category: 'Popular') end 
     5.times do |i| Product.create!(name: steak_names[i+5], price: Faker::Number.between(from: 15, to: 35), image_url: steak_images[i+5], restaurant_id: 72, category: 'Specialties') end 
     3.times do |i| Product.create!(name: chicken_names[i+5], price: Faker::Number.between(from: 15, to: 35), image_url: chicken_images[i+5], restaurant_id: 72, category: 'Specialties') end 
     4.times do |i| Product.create!(name: seafood_names[i+2], price: Faker::Number.between(from: 15, to: 35), image_url: seafood_images[i+2], restaurant_id: 72, category: 'Roots') end 
