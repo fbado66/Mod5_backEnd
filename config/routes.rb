@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :reviews
   resources :orders
   resources :products
-  resources :options
   resources :restaurants
   resources :carts
   # resources :users
@@ -12,7 +11,6 @@ Rails.application.routes.draw do
  get '/users', to: 'users#index'
   post "/users/login", to: "users#login"
   post '/users', to: 'users#create'
-  # get 'users/:id', to: 'users#show'
   patch '/users/:id', to: 'users#update'
   get "/users/keep_logged_in", to: "users#keep_logged_in"
   post '/charges', to: 'charges#create'
