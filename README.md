@@ -33,5 +33,5 @@ This repository serves only as the database for the <a href='https://github.com/
   
   <li> Clone this repository into your local computer </li>
   <li> cd into the repository you just cloned and run bundle install in the command line to ensure all the gems are set in your local system </li>
-  <li> run the next commands: <strong> rails db:create <br/> rails db:migrate <br/> rails db:seed </strong>
+  <li> run <strong> rails db:create, rails db:migrate, rails db:seed </strong>
   <li> The last step will be to run 'rails s' in the command line to deploy the server in test mode in your local computer
